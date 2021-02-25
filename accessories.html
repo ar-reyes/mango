@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+  <html>
+      <head>
+          <title>MANGO | Accessories</title>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1">
+          <link rel="stylesheet" href="stylesheets/apparel.css">
+          <link rel="stylesheet" href="stylesheets/normalize.css">
+          <link rel="icon" href="images/mango.png" type="image/png">
+          <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
+      </head>
+
+      <body onresize="displayNav(); displayFilter();" onload="displayNav()">
+
+        <header>
+            <h1><a href="index.html">MANGO</a></h1>
+        </header>
+
+        <div id="nav_btn" onclick="openNav()">
+          <p id="burger">&nbsp;&#9776;&nbsp;</p>
+          <p id="menu_header">MENU</p>
+        </div>
+
+        <nav id="nav_menu">
+          <ul>
+            <li id="close_btn"><a href="javascript:void(0)" class="close_btn" onclick="closeNav()">&times;</a></li>
+            <a href="apparel.html"><li>APPAREL</li></a>
+            <a href="figures.html"><li>FIGURES</li></a>
+            <a href="manga.html"><li>MANGA</li></a>
+            <a href="accessories.html"><li class="current">ACCESSORIES</li></a>
+            <a href="decor.html"><li>DECOR</li></a>
+            <a href="about.html"><li>ABOUT</li></a>
+          </ul>
+        </nav>
+
+        <div id="filter">
+          <h1 onClick="toggleBtn()">Filter</h1>
+        </div>
+
+        <aside id="aside">
+          <button type="button" class="btn active" onclick="filterSelection('all')">All</button>
+          <button type="button" class="btn" onclick="filterSelection('stickers')">Stickers</button>
+          <button type="button" class="btn" onclick="filterSelection('keychains')">Key Chains</button>
+          <button type="button" class="btn" onclick="filterSelection('backpacks')">Backpacks</button>
+        </aside>
+
+        <main class="container">
+          <!--Picture Source: https://www.redbubble.com/people/lucasbrenner/works/27634232-dark-shadow-my-hero-academia?cat_context=u-stationery&grid_pos=11&p=sticker&rbs=273173c7-8018-4920-9ac6-6cfebb0d3ab7&ref=shop_grid&searchTerm=my%20hero%20academia-->
+          <div class="filterImg stickers"><img src="images/darkshadow.jpg" alt="sticker"></div>
+          <!--Picture Source: https://www.redbubble.com/people/the-fairweather/works/29033362-plus-ultra?cat_context=u-stationery&grid_pos=12&p=sticker&rbs=273173c7-8018-4920-9ac6-6cfebb0d3ab7&ref=shop_grid&searchTerm=my%20hero%20academia -->
+          <div class="filterImg stickers"><img src="images/plusultra.jpg" alt="sticker"></div>
+          <div class="filterImg keychains"><img src="images/mail-10.jpeg" alt="key chain"></div>
+          <div class="filterImg keychains"><img src="images/mail-12.jpeg" alt="key chain"></div>
+          <div class="filterImg backpacks"><img src="images/mail-9.jpeg" alt="backpack"></div>
+          <div class="filterImg backpacks"><img src="images/mail-6.jpeg" alt="backpack"></div>
+        </main>
+
+        <footer>
+            <h1>CONTACT</h1>
+            <ul>
+                <li>Phone: 123-456-7890</li>
+                <li>Email: contact@mango.com</li>
+            </ul>
+        </footer>
+
+        <script type="text/javascript">
+          function displayNav() {
+            if (window.innerWidth <= 560){
+              document.getElementById("nav_menu").style.display = "inline-block";
+              document.getElementById("nav_menu").style.width = "0";
+            }
+            if (window.innerWidth > 560 && window.innerWidth < 1201){
+              document.getElementById("nav_menu").style.display = "none";
+              document.getElementById("nav_menu").style.width = "100%";
+            }
+            if (window.innerWidth >= 1201){
+              document.getElementById("nav_menu").style.display = "inline-block";
+              document.getElementById("nav_menu").style.width = "100%";
+            }
+          }
+          function openNav() {
+            if (window.innerWidth <= 560){
+              document.getElementById("nav_menu").style.width = "85%";
+            }
+            if (window.innerWidth > 560 && window.innerWidth < 1201){
+              if (document.getElementById("nav_menu").style.display === "none") {
+                document.getElementById("nav_menu").style.display = "inline-block";
+              }
+              else {
+                document.getElementById("nav_menu").style.display = "none";
+              }
+            }
+          }
+          function closeNav() {
+              document.getElementById("nav_menu").style.width = "0";
+          }
+
+          function toggleBtn(){
+            var e = document.getElementById("aside");
+           if (e.style.display){
+             e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+           }
+           else {
+             e.style.display='block';
+           }
+          }
+
+          function displayFilter(){
+            if (window.innerWidth >= 1201){
+              document.getElementById("aside").style.display = "block";
+            }
+            if (window.innerWidth > 560 && window.innerWidth < 1201){
+              document.getElementById("aside").style.display = "none";
+            }
+          }
+
+          filterSelection("all")
+          function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterImg");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+              removeClass(x[i], "show");
+              if (x[i].className.indexOf(c) > -1) addClass(x[i], "show");
+            }
+          }
+
+          function addClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+              if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+            }
+          }
+
+          function removeClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+              while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+              }
+            }
+            element.className = arr1.join(" ");
+          }
+
+          var btnContainer = document.getElementById("aside");
+          var btns = btnContainer.getElementsByClassName("btn");
+
+          for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function(){
+              var current = document.getElementsByClassName("active");
+              current[0].className = current[0].className.replace(" active", "");
+              this.className += " active";
+            });
+          }
+        </script>
+
+     </body>
+  </html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+  <html>
+      <head>
+          <title>MANGO | Anime & Comic Merch</title>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1">
+          <link rel="stylesheet" href="stylesheets/mainstyle.css">
+          <link rel="stylesheet" href="stylesheets/normalize.css">
+          <link rel="icon" href="images/mango.png" type="image/png">
+          <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
+      </head>
+
+      <body onresize="displayNav()" onload="displayNav()">
+
+        <header>
+            <h1><a href="index.html">MANGO</a></h1>
+        </header>
+
+        <div id="nav_btn" onclick="openNav()">
+          <p id="burger">&nbsp;&#9776;&nbsp;</p>
+          <p id="menu_header">MENU</p>
+        </div>
+
+        <nav id="nav_menu">
+          <ul>
+            <li id="close_btn"><a href="javascript:void(0)" class="close_btn" onclick="closeNav()">&times;</a></li>
+            <a href="apparel.html"><li>APPAREL</li></a>
+            <a href="figures.html"><li>FIGURES</li></a>
+            <a href="manga.html"><li>MANGA</li></a>
+            <a href="accessories.html"><li>ACCESSORIES</li></a>
+            <a href="decor.html"><li>DECOR</li></a>
+            <a href="about.html"><li>ABOUT</li></a>
+          </ul>
+        </nav>
+
+        <main>
+            <h1>SHOP NOW</h1>
+            <a href="apparel.html"><figure id="first">
+              <img src="images/shirt.png" style="width:200px" alt="APPAREL">
+              <figcaption>APPAREL</figcaption>
+            </figure></a>
+            <a href="figures.html"><figure id="second">
+              <img src="images/action.png" style="width:200px" alt="FIGURES">
+              <figcaption>FIGURES</figcaption>
+            </figure></a>
+            <a href="manga.html"><figure id="third">
+              <img src="images/book.png" style="width:200px" alt="MANGA">
+              <figcaption>MANGA</figcaption>
+            </figure></a>
+            <a href="accessories.html"><figure id="fourth">
+              <img src="images/hat.png" style="width:200px" alt="ACCESSORIES">
+              <figcaption>ACCESSORIES</figcaption>
+            </figure></a>
+            <a href="decor.html"><figure id="fifth">
+              <img src="images/frame.png" style="width:200px" alt="HOME GOODS">
+              <figcaption>DECOR</figcaption>
+            </figure></a>
+        </main>
+
+        <footer>
+            <h1>CONTACT</h1>
+            <ul>
+                <li>Phone: 123-456-7890</li>
+                <li>Email: contact@mango.com</li>
+            </ul>
+        </footer>
+
+        <script type="text/javascript">
+          function displayNav(){
+            if (window.innerWidth <= 560){
+              document.getElementById("nav_menu").style.display = "inline-block";
+              document.getElementById("nav_menu").style.width = "0";
+            }
+            if (window.innerWidth > 560 && window.innerWidth < 1201){
+              document.getElementById("nav_menu").style.display = "none";
+              document.getElementById("nav_menu").style.width = "100%";
+            }
+            if (window.innerWidth >= 1201){
+              document.getElementById("nav_menu").style.display = "inline-block";
+              document.getElementById("nav_menu").style.width = "100%";
+            }
+          }
+          function openNav() {
+            if (window.innerWidth <= 560){
+              document.getElementById("nav_menu").style.width = "85%";
+            }
+            if (window.innerWidth > 560 && window.innerWidth < 1201){
+              if (document.getElementById("nav_menu").style.display === "none") {
+                document.getElementById("nav_menu").style.display = "inline-block";
+              }
+              else {
+                document.getElementById("nav_menu").style.display = "none";
+              }
+            }
+          }
+          function closeNav() {
+              document.getElementById("nav_menu").style.width = "0";
+          }
+        </script>
+
+     </body>
+  </html>

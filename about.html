@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+  <html>
+      <head>
+          <title>MANGO | About</title>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1">
+          <link rel="stylesheet" href="stylesheets/about.css">
+          <link rel="stylesheet" href="stylesheets/normalize.css">
+          <link rel="icon" href="images/mango.png" type="image/png">
+          <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
+      </head>
+
+      <body onresize="displayNav()" onload="displayNav()">
+
+        <header>
+            <h1><a href="index.html">MANGO</a></h1>
+        </header>
+
+        <div id="nav_btn" onclick="openNav()">
+          <p id="burger">&nbsp;&#9776;&nbsp;</p>
+          <p id="menu_header">MENU</p>
+        </div>
+
+        <nav id="nav_menu">
+          <ul>
+            <li id="close_btn"><a href="javascript:void(0)" class="close_btn" onclick="closeNav()">&times;</a></li>
+            <a href="apparel.html"><li>APPAREL</li></a>
+            <a href="figures.html"><li>FIGURES</li></a>
+            <a href="manga.html"><li>MANGA</li></a>
+            <a href="accessories.html"><li>ACCESSORIES</li></a>
+            <a href="decor.html"><li>DECOR</li></a>
+            <a href="about.html"><li class="current">ABOUT</li></a>
+          </ul>
+        </nav>
+
+        <main>
+          <h1>ABOUT</h1>
+          <p>We are a group of people just like you: nerds! As such, we love spending the little money that
+           we earn on merchandise of our favorite animes, shows, and/or movies. That is why we decided to
+           make this; a place where you can find all the merch you need online. The best part, you don't have
+           to go outside!</p>
+        </main>
+
+        <footer>
+            <h1>CONTACT</h1>
+            <ul>
+                <li>Phone: 123-456-7890</li>
+                <li>Email: contact@mango.com</li>
+            </ul>
+        </footer>
+
+        <script type="text/javascript">
+          function displayNav(){
+            if (window.innerWidth <= 560){
+              document.getElementById("nav_menu").style.display = "inline-block";
+              document.getElementById("nav_menu").style.width = "0";
+            }
+            if (window.innerWidth > 560 && window.innerWidth < 1201){
+              document.getElementById("nav_menu").style.display = "none";
+              document.getElementById("nav_menu").style.width = "100%";
+            }
+            if (window.innerWidth >= 1201){
+              document.getElementById("nav_menu").style.display = "inline-block";
+              document.getElementById("nav_menu").style.width = "100%";
+            }
+          }
+          function openNav() {
+            if (window.innerWidth <= 560){
+              document.getElementById("nav_menu").style.width = "85%";
+            }
+            if (window.innerWidth > 560 && window.innerWidth < 1201){
+              if (document.getElementById("nav_menu").style.display === "none") {
+                document.getElementById("nav_menu").style.display = "inline-block";
+              }
+              else {
+                document.getElementById("nav_menu").style.display = "none";
+              }
+            }
+          }
+          function closeNav() {
+              document.getElementById("nav_menu").style.width = "0";
+          }
+        </script>
+
+     </body>
+  </html>
